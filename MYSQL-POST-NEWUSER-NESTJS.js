@@ -1,10 +1,15 @@
+const { SECRET_KEY } = require('./my-environment-variables');
+
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.e30.eMJ6tbXpt_mqIaZze4qHiHDljE-EkHt4wFuG2nvds5A");
+myHeaders.append("Authorization", "Bearer"+" "+SECRET_KEY);
 
 const raw = JSON.stringify({
-  "username": "paul",
-  "password": "123"
+  "username": "beto99",
+  "firstName": "Alberto",
+  "lastName": "Hernandez",
+  "password": "123",
+  "email": "ahernandez@tudominio.com"
 });
 
 const requestOptions = {
@@ -14,7 +19,7 @@ const requestOptions = {
   redirect: "follow"
 };
 
-fetch("http://localhost:3000/auth/login", requestOptions)
+fetch("http://localhost:3000/users", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));

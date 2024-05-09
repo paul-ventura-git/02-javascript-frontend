@@ -1,6 +1,8 @@
+const { SECRET_KEY } = require('./my-environment-variables');
+
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.e30.eMJ6tbXpt_mqIaZze4qHiHDljE-EkHt4wFuG2nvds5A");
+myHeaders.append("Authorization", "Bearer"+" "+SECRET_KEY);
 
 const raw = JSON.stringify({
   "username": "alonso",

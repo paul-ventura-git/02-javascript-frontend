@@ -1,9 +1,11 @@
+const { BASIC_KEY_OAUTH2 } = require('./my-environment-variables');
+
 fetch("http://localhost:3000/oauth/token", {
   method: "POST",
   body: "grant_type=password&username=pedroetb&password=password",
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': 'Basic YXBwbGljYXRpb246c2VjcmV0',
+    'Authorization': 'Basic'+' '+BASIC_KEY_OAUTH2,
     'User-Agent': 'PostmanRuntime/7.32.3',
     'Accept': '*/*',
     'Cache-Control': 'no-cache',
